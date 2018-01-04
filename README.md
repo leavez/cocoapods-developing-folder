@@ -38,9 +38,9 @@ end
 It will import all local pods in that folder and its subfolders recrusively, equivalent of:
 
 ```
-pod AAA, :path => "modules/AAA"
-pod BBB, :path => "modules/BBB"
-pod CCC, :path => "modules/some/path/to/CCC"
+pod "AAA", :path => "modules/AAA"
+pod "BBB", :path => "modules/BBB"
+pod "CCC", :path => "modules/some/path/to/CCC"
 #...
 ```
 
