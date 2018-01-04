@@ -8,4 +8,8 @@ A description of cocoapods-developing-folder.
 
 ## Usage
 
-    $ pod spec folder POD_NAME
+Add the following to your podfile:
+```ruby
+plugin 'cocoapods-developing-folder'
+use_folders
+```
