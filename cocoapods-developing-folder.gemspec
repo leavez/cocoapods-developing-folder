@@ -6,11 +6,11 @@ require 'cocoapods-developing-folder/gem_version.rb'
 Gem::Specification.new do |spec|
   spec.name          = 'cocoapods-developing-folder'
   spec.version       = CocoapodsDevelopingFolder::VERSION
-  spec.authors       = ['GaoJi']
-  spec.email         = ['gaoji@mobike.com']
-  spec.description   = %q{A short description of cocoapods-developing-folder.}
-  spec.summary       = %q{A longer description of cocoapods-developing-folder.}
-  spec.homepage      = 'https://github.com/EXAMPLE/cocoapods-developing-folder'
+  spec.authors       = ['leavez']
+  spec.email         = ['gaojiji@gmail.com']
+  spec.description   = %q{Preserve the folder hierarchy for development pods in xcode.}
+  spec.summary       = %q{Preserve the folder hierarchy for development pods in xcode}
+  spec.homepage      = 'https://github.com/leavez/cocoapods-developing-folder'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
