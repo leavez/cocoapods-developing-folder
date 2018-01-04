@@ -1,3 +1,5 @@
+require 'cocoapods-developing-folder/command/folder_DSL.rb'
+
 module Pod
     class Podfile
         def use_folders
