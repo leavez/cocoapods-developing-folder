@@ -20,6 +20,11 @@ plugin 'cocoapods-developing-folder'
 use_folders
 ```
 
+If you don't want to create groups for top level folders (Local pods are usually grouped in the same folder):
+```ruby
+use_folders :skip_top_level_group => ["modules"]
+```
+
 ####  import all local pods in specific folder
 
 Use `folder` just like `pod` keyword. (In fact, they are just ruby functions)
