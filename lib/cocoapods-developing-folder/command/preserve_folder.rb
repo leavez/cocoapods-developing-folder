@@ -16,6 +16,17 @@ module Xcodeproj
 end
 
 
+module Pod
+    def self.skipped_top_level_folder_names
+        @skipped_top_level_folder_names
+    end
+    def self.set_skipped_top_level_folder_names(names)         
+        @skipped_top_level_folder_names = names
+    end
+end
+
+
+
 require 'pathname'
 
 module Pod
@@ -50,6 +61,9 @@ module Pod
         pathArray = parentPath.split("/").select {|component| component.length > 0}
         if parentPath == "." 
             pathArray = []
+        end
+        if pathArray.first != nil and Pod.skipped_top_level_folder_names.include? pathArray.first
+            pathArray = pathArray.drop(1)
         end
         
         getGroup(pathArray, development_pods)
