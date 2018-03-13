@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cocoapods-developing-folder (0.0.1)
+    cocoapods-developing-folder (0.0.4)
 
 GEM
   remote: https://rubygems.org/
@@ -92,4 +92,4 @@ DEPENDENCIES
   rake
 
 BUNDLED WITH
-   1.14.3
+   1.16.0
