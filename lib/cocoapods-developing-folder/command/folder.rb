@@ -17,7 +17,6 @@ module Pod
         def inhibit_warnings_with_condition(&condition) 
             require 'cocoapods-developing-folder/command/inhibit_warnings_with_condition.rb'
             Pod.set_inhibit_waning_condition_block  proc(&condition)
-            Pod.inhibit_waning_condition_block.call("aaaaaa")
         end
 
     end

@@ -23,7 +23,7 @@ module Pod
             # return the original 
             return old_method.bind(self).()
         else 
-            return Pod.inhibit_waning_condition_block.call(pod_name)
+            return Pod.inhibit_waning_condition_block.call(pod_name, self)
         end
       end
 
