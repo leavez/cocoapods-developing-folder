@@ -20,8 +20,12 @@ module Pod
                     return 
                 end
                 options = requirements.last
-                options[:path] = path.to_s
-                pod(name, *requirements)
+                if options
+                    options[:path] = path.to_s
+                    pod(name, *requirements)
+                else 
+                    pod(name, :path => path.to_s)
+                end
             end
 
         end
