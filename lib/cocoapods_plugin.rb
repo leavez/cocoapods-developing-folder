@@ -1,1 +1,1 @@
-require 'cocoapods-developing-folder/command'
+require 'cocoapods-developing-folder/folder'

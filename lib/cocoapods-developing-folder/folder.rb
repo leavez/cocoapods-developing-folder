@@ -1,10 +1,11 @@
-require 'cocoapods-developing-folder/command/folder_DSL.rb'
+require_relative 'folder_DSL'
+require_relative 'local_pod_DSL'
 
 module Pod
     class Podfile
         
         def use_folders(*skipped_top_level_folder_names)
-            require 'cocoapods-developing-folder/command/preserve_folder.rb'
+            require_relative 'preserve_folder'
             names_to_skip = []
             first = skipped_top_level_folder_names.first
             if first.is_a? Hash
@@ -15,7 +16,7 @@ module Pod
         
         
         def inhibit_warnings_with_condition(&condition) 
-            require 'cocoapods-developing-folder/command/inhibit_warnings_with_condition.rb'
+            require_relative 'inhibit_warnings_with_condition'
             Pod.set_inhibit_waning_condition_block  proc(&condition)
         end
 
