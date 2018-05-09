@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = CocoapodsDevelopingFolder::VERSION
   spec.authors       = ['leavez']
   spec.email         = ['gaojiji@gmail.com']
-  spec.description   = %q{Preserve the folder hierarchy for development pods in xcode.}
-  spec.summary       = %q{Preserve the folder hierarchy for development pods in xcode}
+  spec.description   = %q{a branch of tools for who heavily use development pods}
+  spec.summary       = %q{a branch of tools for who heavily use development pods}
   spec.homepage      = 'https://github.com/leavez/cocoapods-developing-folder'
   spec.license       = 'MIT'
 
