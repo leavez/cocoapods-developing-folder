@@ -1,10 +1,11 @@
 # cocoapods-developing-folder
 
-A cocoapods plugin  provide a branch of tools for who heavily use development pods in project:
+A cocoapods plugin  provide a branch of tools for who heavily use development pods in project. You can do these:
 
-- Availability to preserves the folder structure in `development pods`
-- Provides a new keyword `folder` to import all local pods in a specific folder and its subfolders
-- Function to inhibit warnings for specific pods with a block.
+- new keyword `local_pod` to import a local pod without specifying path
+- new keyword `folder` to import all local pods in a specific folder and its subfolders
+- preserves the folder structure in `development pods`
+- inhibit warnings for specific pods with a block.
 
 
 ## Installation
@@ -13,18 +14,18 @@ A cocoapods plugin  provide a branch of tools for who heavily use development po
 
 ## Usage
 
-#### 🔸 Preserves the folder structure
-
-Add the following to your podfile
+Firstly, you should add this in head of Podifle:
 
 ```ruby
 plugin 'cocoapods-developing-folder'
-use_folders
 ```
 
-If you don't want to create groups for top level folders (Local pods are usually grouped in the same folder):
+#### 🔸 Import a local pods without specifying path
+
+Use `local_pod` just like `pod` keyword. No need to adding path. E.g.
+
 ```ruby
-use_folders :skip_top_level_group => ["modules"]
+local_pod "Evangelion" # no need for `:path => "modules/Evangelion"`
 ```
 
 #### 🔸 Import all local pods in specific folder
@@ -39,6 +40,7 @@ target "ABC" do
     pod "SnapKit"
     folder "frameworks/core" # 'frameworks/core' is just a relative path to podfile
     folder "modules"         #  it will import all pod in 'modules' folder and its subfolders
+    folder "libs", :inhibit_warnings => true  #  the option will apply to all pods in the libs folder
 end
 ```
 
@@ -49,6 +51,19 @@ pod "Ayanami", :path => "modules/Ayanami"
 pod "Asuka",   :path => "modules/Asuka"
 pod "Shinji",  :path => "modules/some/path/to/Shinji"
 #...
+```
+
+#### 🔸 Preserves the folder structure
+
+Add the following to your podfile
+
+```ruby
+use_folders
+```
+
+If you don't want to create groups for top level folders (Local pods are usually grouped in the same folder):
+```ruby
+use_folders :skip_top_level_group => ["modules"]
 ```
 
 #### 🔸 Inhibit warnings for specific pods
