@@ -20,11 +20,11 @@ module Pod
                     return 
                 end
                 options = requirements.last
-                if options
+                if options and options.kind_of? Hash
                     options[:path] = path.to_s
                     pod(name, *requirements)
                 else 
-                    pod(name, :path => path.to_s)
+                    pod(name, *requirements, :path => path.to_s)
                 end
             end
 
