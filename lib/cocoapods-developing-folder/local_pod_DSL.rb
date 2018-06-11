@@ -1,11 +1,18 @@
 require 'pathname'
+require_relative 'utiltiy'
 
 module Pod
     class Podfile
         module DSL
 
             def local_pod(name, *requirements)
-                basePath = Pathname.new "./"
+                options = requirements.last
+
+                rootPath = "./"
+                if options and options.kind_of? Hash and options[:root_path] != nil
+                    rootPath = options[:root_path]
+                end
+                basePath = Pathname.new rootPath
 
                 path = nil
                 basePath.find do |p|
@@ -19,8 +26,9 @@ module Pod
                     raise "\ncannot find local pod: #{name}"
                     return 
                 end
-                path = path.parent.to_s[2..-1]
-                options = requirements.last
+                path = unify_path(path.parent)
+                path = path.to_s
+                
                 if options and options.kind_of? Hash
                     options[:path] = path
                     pod(name, *requirements)

@@ -1,4 +1,5 @@
 require 'pathname'
+require_relative 'utiltiy'
 
 module Pod
     class Podfile
@@ -12,7 +13,7 @@ module Pod
                     end
                     if podspec != nil 
                         options = (requirements.last || {}).clone 
-                        options[:path] = path.to_path
+                        options[:path] = unify_path(path).to_path
                         pod(podspec.basename(".podspec").to_s, options)
                     end
                     path.children.each do |p|
