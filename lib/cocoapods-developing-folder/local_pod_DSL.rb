@@ -19,12 +19,13 @@ module Pod
                     raise "\ncannot find local pod: #{name}"
                     return 
                 end
+                path = path.parent.to_s[2..-1]
                 options = requirements.last
                 if options and options.kind_of? Hash
-                    options[:path] = path.to_s
+                    options[:path] = path
                     pod(name, *requirements)
                 else 
-                    pod(name, *requirements, :path => path.to_s)
+                    pod(name, *requirements, :path => path)
                 end
             end
 
