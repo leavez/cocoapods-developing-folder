@@ -2,13 +2,27 @@ require 'pathname'
 require_relative 'utiltiy'
 
 module Pod
+
+    class_attr_accessor :local_pod_DSL_root_path
+
+    class Podfile
+
+        def local_pod_searching_root(path)
+            Pod.local_pod_DSL_root_path = path
+        end
+    end
+end
+
+
+
+module Pod
     class Podfile
         module DSL
 
             def local_pod(name, *requirements)
                 options = requirements.last
 
-                rootPath = "./"
+                rootPath = Pod.local_pod_DSL_root_path || "./"
                 if options and options.kind_of? Hash and options[:root_path] != nil
                     rootPath = options[:root_path]
                 end
