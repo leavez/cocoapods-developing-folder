@@ -28,6 +28,12 @@ Use `local_pod` just like `pod` keyword. No need to adding path. E.g.
 local_pod "Evangelion" # no need for `:path => "modules/Evangelion"`
 ```
 
+It will search your project root path. If you want smaller or larger search range, set `local_pod_searching_root`, e.g.
+``` ruby
+# in the podfile
+local_pod_searching_root "../Libs"
+```
+
 #### 🔸 Import all local pods in specific folder
 
 Use `folder` just like `pod` keyword. (In fact, they are just ruby functions)
