@@ -32,6 +32,8 @@ It will search your project root path. If you want smaller or larger search rang
 ``` ruby
 # in the podfile
 local_pod_searching_root "../Libs"
+# Array is also supported.
+# local_pod_searching_root ["../Libs", "../../modules"]
 ```
 
 #### 🔸 Import all local pods in specific folder
