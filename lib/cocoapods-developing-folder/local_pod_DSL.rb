@@ -33,6 +33,7 @@ module Pod
                     rootPaths = [ options[:root_path] ]
                 end
 
+                rootPodName = Specification.root_name name
                 found = false
 
                 rootPaths.each do |rootPath|
@@ -40,7 +41,7 @@ module Pod
     
                     path = nil
                     basePath.find do |p|
-                        if p.basename.to_s == "#{name}.podspec"
+                        if p.basename.to_s == "#{rootPodName}.podspec"
                             path = p
                             break
                         end
