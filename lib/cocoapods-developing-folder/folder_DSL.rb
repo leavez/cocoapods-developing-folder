@@ -9,12 +9,14 @@ module Pod
                 basePath = Pathname.new path
                 def import_pod(path, *requirements)
                     podspec = path.children.find do |p|
-                        !p.directory? and p.extname == ".podspec"
+                        !p.directory? and (p.extname == ".podspec" or p.basename.to_s.end_with? ".podspec.json")
                     end
                     if podspec != nil 
                         options = (requirements.last || {}).clone 
                         options[:path] = unify_path(path).to_path
-                        pod(podspec.basename(".podspec").to_s, options)
+                        name = podspec.basename(".json")
+                        name = name.basename(".podspec")
+                        pod(name.to_s, options)
                     end
                     path.children.each do |p|
                         if p.directory?
