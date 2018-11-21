@@ -41,7 +41,7 @@ module Pod
     
                     path = nil
                     basePath.find do |p|
-                        if p.basename.to_s == "#{rootPodName}.podspec"
+                        if p.basename.to_s == "#{rootPodName}.podspec" || p.basename.to_s == "#{rootPodName}.podspec.json"
                             path = p
                             break
                         end
